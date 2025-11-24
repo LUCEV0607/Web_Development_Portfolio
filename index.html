@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.85) 0%, rgba(52, 73, 94, 0.85) 100%),
+                        url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.keu6UonKZhyvHS5smrNYSgHaEK%3Fpid%3DApi&f=1&ipt=e20173b261ebacdbcf1de3e8959caf3942bf60d63c9449df7d819dcf1b9f5c09&ipo=images');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-blend-mode: multiply;
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+
+        .intro {
+            padding: 40px;
+            text-align: center;
+            background: #f8f9fa;
+            border-bottom: 3px solid #2c3e50;
+        }
+
+        .intro p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .portfolio-grid {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid #e0e0e0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(44, 62, 80, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #2c3e50;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.3em;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 1.5em;
+        }
+
+        .project-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(44, 62, 80, 0.4);
+        }
+
+        .under-construction {
+            background: #6c757d;
+            color: white;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.95em;
+        }
+
+        footer a {
+            color: #95a5a6;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header p {
+                font-size: 1em;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Web Development Portfolio</h1>
+            <p>A Comprehensive Website Development Journey</p>
+        </header>
+
+        <div class="intro">
+            <p>
+                This comprehensive portfolio demonstrates the progression of web development skills 
+                acquired throughout an intensive academic course. Each project represents a milestone 
+                in developing fundamental and intermediate web technologies. These fundamentals include 
+                HTML structure, responsive CSS design, and interactive JavaScript implementations. 
+                The collection showcases primarily independent work with limited external support, thereby 
+                reflecting real-world development practices and web design standards.
+            </p>
+        </div>
+
+        <div class="portfolio-grid">
+            <!-- Practice Activity 1 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwebdesignerhut.com%2Fwp-content%2Fuploads%2F2023%2F05%2Fhtml.png&f=1&nofb=1&ipt=bcc5e47434f0cd9d8cd58ab776e87699e1375eeb6f44d6028967569cd97f67a5" alt="Practice Activity 1">
+                    <div class="project-badge">Practice</div>
+                </div>
+                <div class="project-content">
+                    <h3>Practice Activity 1</h3>
+                    <p>Foundational exploration of HTML markup, demonstrating proficiency in semantic elements, document structure, and content organization through proper use of headings, paragraphs, and formatting conventions.</p>
+                    <a href="Selling on the web HTML Part One.html" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Practice Activity 2 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.freepik.com%2Ffree-photo%2Fprogramming-background-collage_23-2149901782.jpg%3Fw%3D2000&f=1&nofb=1&ipt=9572897402718263161883456d7f0471cb873543b9cc8d6c2be0f99c206df257" alt="Practice Activity 2">
+                    <div class="project-badge">Practice</div>
+                </div>
+                <div class="project-content">
+                    <h3>Practice Activity 2</h3>
+                    <p>Continuation of foundational HTML skills building upon single static markup pages. Employs core HTML principles, default browser rendering, basic text markup, manual formatting elements, and standard hyperlink styling.</p>
+                    <a href="Selling on the web HTML Part Two.html" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Practice Activity 3 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.otallu.com%2Fwp-content%2Fuploads%2F2017%2F08%2Fbasic-html-layout-tutorial-image.jpg&f=1&nofb=1&ipt=eda0828f9ad32b043f62f9b57104a984d558e1839b2c7ddfe84ffe5c9ca04da8" alt="Practice Activity 3">
+                    <div class="project-badge">Practice</div>
+                </div>
+                <div class="project-content">
+                    <h3>Practice Activity 3</h3>
+                    <p>A single static HTML file incorporating basic form elements and inline JavaScript to enable real-time user customization. Employs fundamental HTML input controls, default browser styling, and DOM manipulation techniques.</p>
+                    <a href="Interactive.assignment.html" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Partner Lab 1 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F3520511.png&f=1&nofb=1&ipt=f623b078271a2227b34d5d4b667c1eb9495e2210264ceac72c0b6310e6fc8d98" alt="Partner Lab 1">
+                    <div class="project-badge">Partner Lab</div>
+                </div>
+                <div class="project-content">
+                    <h3>Partner Lab 1</h3>
+                    <p>Collaborative project employing fundamental HTML structure, inline CSS for layout and styling, and JavaScript with hover effects and interactive navigation functions.</p>
+                    <a href="Record Store Project.html" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Partner Lab 2 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2F5%2F6%2F8%2F489112.jpg&f=1&nofb=1&ipt=5bcd07f92da4ee2d9b768d1a9d2e0857e7c74e771a54f7d5056a4986f99add01" alt="Partner Lab 2">
+                    <div class="project-badge">Partner Lab</div>
+                </div>
+                <div class="project-content">
+                    <h3>Partner Lab 2</h3>
+                    <p>A collaborative web development initiative integrating form validation and improved CSS techniques to deliver an interactive, accessible web application meeting contemporary usability standards.</p>
+                    <a href="The Responsive Restaurant.html" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Individual Assignment 1 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.teahub.io%2Fphotos%2Ffull%2F303-3030448_coding-html-css.jpg&f=1&nofb=1&ipt=eeb043b28903625f9e9b0628c48e2dc2710ec5e8b1fc15cb8ec72ddddb6e917a" alt="Individual Assignment 1">
+                    <div class="project-badge">Individual</div>
+                </div>
+                <div class="project-content">
+                    <h3>Individual Assignment 1</h3>
+                    <p>Independent project establishing comprehensive understanding of semantic HTML5 elements, accessibility considerations, and structural best practices in modern web document architecture.</p>
+                    <a href="CSS Transforms and Filters.html" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Individual Assignment 2 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F2987604.png&f=1&nofb=1&ipt=8b839d96461841fabe571660e8fa63fd14f52d2f3871b8eba4c698b229f68fa0" alt="Individual Assignment 2">
+                    <div class="project-badge">Individual</div>
+                </div>
+                <div class="project-content">
+                    <h3>Individual Assignment 2</h3>
+                    <p>Comprehensive demonstration of advanced CSS methodologies, including custom properties, animations, transitions, and mobile-first responsive design strategies for optimal cross-platform performance.</p>
+                    <a href="B.S. in Artificial Intelligence - Penn State IST.html" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Individual Assignment 3 -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffiles.speakerdeck.com%2Fpresentations%2F510aed10c64e463c907215787e643f7e%2Fslide_42.jpg&f=1&nofb=1&ipt=7e0733db02778def9ff2b3a19ff0906c2c3302f44c3adc73cadea7c21df53d5c" alt="Individual Assignment 3">
+                    <div class="project-badge">Individual</div>
+                </div>
+                <div class="project-content">
+                    <h3>Individual Assignment 3</h3>
+                    <p>Sophisticated web application incorporating JavaScript programming fundamentals, DOM manipulation, event handling, and asynchronous operations to create dynamic, interactive user experiences.</p>
+                    <a href="Ember & Grove Coffee Roastery.html" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Individual Assignment 4 (Final Project) -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F3434723.jpg&f=1&nofb=1&ipt=6a0ce41edf4fd57319a5e57a41ca8904fd133542dba3e01240e4c57befb00457" alt="Individual Assignment 4">
+                    <div class="project-badge" style="background: rgba(255, 255, 255, 0.95); color: #495057;">Final Project</div>
+                </div>
+                <div class="project-content">
+                    <h3>Individual Assignment 4</h3>
+                    <p>Capstone project currently in development, designed to synthesize all acquired competencies into a comprehensive web application demonstrating professional-grade development capabilities.</p>
+                    <a href="individual-assignment-4/index.html" class="project-link under-construction">Coming Soon →</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Web Development Portfolio | Penn State IST Student Coursework Archive</p>
+            <p>Deployed via <a href="https://github.com" target="_blank">GitHub Pages</a></p>
+        </footer>
+    </div>
+</body>
+</html>
